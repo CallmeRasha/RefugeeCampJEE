@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://java.sun.com/jsf/html">
+
+	<h:form role="form">
+
+			<h:outputText value="Company" />
+			<p:inputText id="company" value="#{partnerBean.partner.company}" />
+
+			<h:commandButton
+				action="#{partnerBean.rechercherAllPartnersByCompany()}"
+				value="Search" />
+
+			<h:dataTable value="#{partnerBean.rechercherAllPartnersByCompany()}"
+				var="p" border="2">
+				
+				<p:column headerText="Partner ID" >
+					<h:outputText value="#{p.partnerID}" />
+				</p:column>
+				
+				<p:column headerText="First Name">
+					<h:outputText value="#{p.firstName}" />
+				</p:column>
+				
+				<p:column headerText="Last Name">
+					<h:outputText value="#{p.firstName}" />
+				</p:column>
+				
+				<p:column headerText="Phone Number">
+					<h:outputText value="#{p.phoneNumber}" />
+				</p:column>
+				
+				<p:column headerText="E-mail" >
+					<h:outputText value="#{p.email}" />
+				</p:column>
+				
+				<p:column headerText="Company">
+					<h:outputText value="#{p.company}" />
+				</p:column>
+				
+				<p:column headerText="title">
+					<h:outputText value="#{p.title}" />
+				</p:column>
+				
+				<p:column headerText="Description">
+					<h:outputText value="#{p.description}" />
+				</p:column>
+				
+				<p:column headerText="Status of Partnership">
+					<h:outputText value="#{p.status}" />
+				</p:column>	
+				
+				<p:column headerText="action">
+					<h:commandButton value="Delete"
+						action="#{partnerBean.doDeletePartners(p)}" update=":Partners" />
+						<h:commandButton value="traiter"
+						action="#{partnerBean.traiter(p)}" />
+				</p:column>
+				
+		</h:dataTable>
+		
+		</h:form>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:p="http://primefaces.org/ui">
+      
+
+	
+	<h:form id="form" >
+	
+			<p:dataTable emptyMessage="No " paginator="true"
+				paginatorPosition="bottom" rows="4"
+				value="#{refBean.refugs}" var="p">
+				<f:facet name="header">
+					<h:outputText value="List Of  Refugees" />
+				</f:facet>
+				<p:column headerText="FirstName" >
+					<h:outputText value="#{p.firstName}" />
+				</p:column>
+				
+				<p:column headerText="LastName">
+					<h:outputText value="#{p.lastName}" />
+				</p:column>
+				
+				<p:column headerText="MiddleName">
+					<h:outputText value="#{p.middleName}" />
+				</p:column>
+				
+				<p:column headerText="Skills">
+					<h:outputText value="#{p.skills}" />
+				</p:column>
+				
+			</p:dataTable>
+
+		</h:form>
+		
+</html>

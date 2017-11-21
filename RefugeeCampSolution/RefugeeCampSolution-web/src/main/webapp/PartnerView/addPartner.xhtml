@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+	<h:head>
+<script src='https://www.google.com/recaptcha/api.js?hl=en'></script>
+	</h:head>
+			<h:form>
+			<h:panelGrid columns="2" border="1">
+			
+			<h:outputText value="First Name" />
+			<h:inputText required="true" requiredMessage="Please First Name" value="#{partnerBean.partner.firstName}" />
+			
+			<h:outputText value="Last Name" />
+			<h:inputTextarea required="true" requiredMessage="Enter Last Name" value="#{partnerBean.partner.lastName}" />
+			
+			<h:outputText value="E-mail" />
+			<h:inputText required="true" requiredMessage="Enter E-mail" value="#{partnerBean.partner.email}">
+			<f:validator validatorId="emailValidator" />
+    	   </h:inputText>
+			
+			<h:outputText value="Company" />
+			<h:inputText required="true" requiredMessage="Enter Company's name" value="#{partnerBean.partner.company}" />
+			
+			<h:outputText value="Chief Executive" />
+			<h:inputText required="true" requiredMessage="Enter your CEO's name" value="#{partnerBean.partner.title}" />
+			
+			<h:outputText value="Description" />
+			<h:inputText required="true" requiredMessage="Enter Description" value="#{partnerBean.partner.description}" />
+			
+			<h:outputText value="Phone Number" />
+			<h:inputText required="true" requiredMessage="Enter Phone Number" value="#{partnerBean.partner.phoneNumber}" />
+							
+			<h:commandButton value="add" action="#{partnerBean.doAddOrSavepartners()}"/>
+			<div class="g-recaptcha" data-sitekey="6LfyGTkUAAAAAAAai3WP6ve8KoYValUfvpdVN6hX"></div>
+			
+			</h:panelGrid>
+			</h:form>
+			</html>
